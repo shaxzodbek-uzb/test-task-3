@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+require_once __DIR__ . './vendor/autoload.php';
+ 
+use Symfony\Component\Console\Application;
+use App\Commands\ClearcacheCommand;
+use App\Commands\MigrateCommand;
+use App\Setup\DB;
+
+require('./config.php');
+
+new DB($config["db"]);
+
+$app = new Application();
+
+//commands
+$app->add(new ClearcacheCommand());
+$app->add(new MigrateCommand());
+
+$app->run();

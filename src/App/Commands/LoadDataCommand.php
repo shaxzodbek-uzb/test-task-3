@@ -1,31 +1,30 @@
 <?php
-namespace Console\App\Commands;
+namespace App\Commands;
  
-use Console\App\Models\User;
-use Console\App\Models\Order;
-use Console\App\Factories\NotifierFactory;
+use App\Models\Currency;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
-use Console\App\Exceptions\ModelNotFoundException;
+// use Console\App\Exceptions\ModelNotFoundException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+
 
 class NotifyCommand extends Command
 {
     protected function configure()
     {
-        $this->setName('load-data')
-            ->setDescription('')
-            ->setHelp('')
-            ->addArgument('provider', InputArgument::REQUIRED, '');
-            
+        $this->setName('load-data');
+            // ->setDescription('')
+            // ->setHelp('')
+            // ->addArgument('provider', InputArgument::REQUIRED, '');
+        print_r(Currency::where('votes', '>', 1)->get());
             //TODO validate arguments    
     }
  
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $input->getArgument('')
-        $output->writeln("");
+        // $input->getArgument('')
+        // $output->writeln("");
         
         return 0;
     }
